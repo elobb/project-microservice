@@ -30,7 +30,11 @@ export class LoginResponse {
   accessToken: string;
   @Field({ nullable: true })
   refreshToken: string;
-
   @Field(() => ErrorType, { nullable: true })
   error?: ErrorType;
+}
+@ObjectType()
+export class LogoutResponse {
+  @Field()
+  message?: string;
 }

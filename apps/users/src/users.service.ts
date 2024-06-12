@@ -60,7 +60,11 @@ export class UsersService {
       email,
       name,
     });
-    return { activation_token: activationToken.token, response };
+    return {
+      activation_token: activationToken.token,
+      message: 'Otp sended to email !',
+      response,
+    };
   }
 
   // create activation token
@@ -144,7 +148,6 @@ export class UsersService {
     const user = req.user;
     const refreshToken = req.refreshToken;
     const accessToken = req.accessToken;
-    console.log({ user, accessToken, refreshToken });
     return { accessToken, refreshToken, user };
   }
 

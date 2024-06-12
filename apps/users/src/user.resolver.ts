@@ -24,12 +24,12 @@ export class UserResolver {
     if (!registerDto.name || !registerDto.email || !registerDto.password) {
       throw new BadRequestException('Please fill the all fields');
     }
-    const { activation_token } = await this.userService.register(
+    const { activation_token, message } = await this.userService.register(
       registerDto,
       context.res,
     );
 
-    return { activation_token };
+    return { activation_token, message };
   }
 
   @Mutation(() => ActivationResponse)
